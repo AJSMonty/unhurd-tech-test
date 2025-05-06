@@ -83,9 +83,7 @@
             "related": ".xml"
           }
         },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        "frameworkReferences": ["Microsoft.AspNetCore.App"]
       },
       "Microsoft.Azure.Cosmos/3.49.0": {
         "type": "package",
@@ -449,9 +447,7 @@
             "related": ".pdb;.xml"
           }
         },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        "frameworkReferences": ["Microsoft.AspNetCore.App"]
       },
       "Swashbuckle.AspNetCore.SwaggerGen/6.4.0": {
         "type": "package",
@@ -481,9 +477,7 @@
             "related": ".pdb;.xml"
           }
         },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        "frameworkReferences": ["Microsoft.AspNetCore.App"]
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -4696,12 +4690,8 @@
       "packagesPath": "/Users/ajmontgomery/.nuget/packages/",
       "outputPath": "/Users/ajmontgomery/Projects/unhurd/unhurd-tech-test/unhurd-tech-test/server/obj/",
       "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "/Users/ajmontgomery/.nuget/NuGet/NuGet.Config"
-      ],
-      "originalTargetFrameworks": [
-        "net8.0"
-      ],
+      "configFilePaths": ["/Users/ajmontgomery/.nuget/NuGet/NuGet.Config"],
+      "originalTargetFrameworks": ["net8.0"],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4712,9 +4702,7 @@
         }
       },
       "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
+        "warnAsError": ["NU1605"]
       },
       "restoreAuditProperties": {
         "enableAudit": "true",
@@ -4781,9 +4769,7 @@
       "warningLevel": 1,
       "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.5.0 was resolved.",
       "libraryId": "MediatR",
-      "targetGraphs": [
-        "net8.0"
-      ]
+      "targetGraphs": ["net8.0"]
     }
   ]
 }
