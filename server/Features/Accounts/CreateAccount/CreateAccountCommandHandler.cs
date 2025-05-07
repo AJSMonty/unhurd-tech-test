@@ -17,9 +17,23 @@ internal sealed class CreateAccountCommandHandler(
         CancellationToken cancellationToken)
     {
         var createRequest = request.Request;
+        
+
+        var existingResult = await accountsRepository.GetAccountByIdAsync(createRequest.AccountId);
+
+        string newId;
+        if (existingResult.IsSuccess && existingResult.Value is not null)
+        {
+            newId = existingResult.Value.id;
+        }
+        else
+        {
+            newId = Guid.NewGuid().ToString();
+        }
+
         var newAccount = new Account
         {
-            id = Guid.NewGuid().ToString(),
+            id = newId,
             accountId = createRequest.AccountId,
             displayName = createRequest.DisplayName ?? string.Empty,
             email = createRequest.Email,
