@@ -9,7 +9,7 @@ namespace Unhurd.Api.Features.Accounts.GetAccountDetailsByFireBaseId;
 public sealed class GetAccountDetailsByFireBaseIdEndpoint(ISender sender) : ControllerBase
 {
     [HttpGet("account/{accountId}")]
-    public async Task<IActionResult> GetFanHubByAccountIdAsync(
+    public async Task<IActionResult> GetAccountDetailsByFireBaseIdAsync(
         string accountId,
         CancellationToken cancellationToken = default)
     {

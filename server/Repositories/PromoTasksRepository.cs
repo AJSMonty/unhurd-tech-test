@@ -1,5 +1,6 @@
 using Microsoft.Azure.Cosmos;
 using Unhurd.Api.Models;
+using Unhurd.Infrastructure.Common;
 
 namespace Unhurd.Api.Repositories;
 
@@ -12,21 +13,36 @@ public class PromoTasksRepository : IPromoTasksRepository
         _container = client.GetContainer("unhurd-tech-test", "promo-tasks");
     }
 
-    public async Task<List<PromoTask>> GetTasksByAccountAsync(string accountId)
+   public async Task<Result<List<PromoTask>>> GetTasksByAccountAsync(string accountId)
+{
+    try
     {
         var query = new QueryDefinition("SELECT * FROM c WHERE c.accountId = @accountId")
             .WithParameter("@accountId", accountId);
 
-        var resultSet = _container.GetItemQueryIterator<PromoTask>(query);
+        var resultSet = _container.GetItemQueryIterator<PromoTask>(
+            query,
+            requestOptions: new QueryRequestOptions
+            {
+                PartitionKey = new PartitionKey(accountId)
+            });
+
         var results = new List<PromoTask>();
+
         while (resultSet.HasMoreResults)
         {
             var response = await resultSet.ReadNextAsync();
             results.AddRange(response);
         }
 
-        return results;
+        return Result<List<PromoTask>>.Success(results);
     }
+    catch (Exception ex)
+    {
+        return Result<List<PromoTask>>.Failure(new Error("PromoTask.FetchFailed", ex.Message));
+    }
+}
+
 
     public async Task<PromoTask?> GetTaskByIdAsync(string id, string accountId)
     {

@@ -2,7 +2,7 @@ namespace Unhurd.Api.Models;
 
 public class PromoTask
 {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public string id { get; set; } = Guid.NewGuid().ToString();
     public string AccountId { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
 
