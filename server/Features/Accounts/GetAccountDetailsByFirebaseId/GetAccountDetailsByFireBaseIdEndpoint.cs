@@ -1,10 +1,12 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Unhurd.Infrastructure.Common;
 
 namespace Unhurd.Api.Features.Accounts.GetAccountDetailsByFireBaseId;
 
 [ApiController]
+[Authorize]
 [Tags("Accounts")]
 public sealed class GetAccountDetailsByFireBaseIdEndpoint(ISender sender) : ControllerBase
 {

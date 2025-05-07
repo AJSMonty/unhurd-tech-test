@@ -4,19 +4,19 @@ using Unhurd.Infrastructure.Common;
 
 namespace Unhurd.Api.Features.PromoTasks.GetPromoTasksByAccountId;
 
-internal sealed class GetPromoTasksByAccountIdQueryHandler(
+internal sealed record class GetPromoTasksByAccountIdQueryHandler(
     IPromoTasksRepository promoTasksRepository)
-    : IRequestHandler<GetPromoTasksByAccountIdQuery, Result<PromoTasksResponse>>
+    : IRequestHandler<GetPromoTasksByAccountIdQuery, Result<PromoTaskListResponse>>
 {
-    public async Task<Result<PromoTasksResponse>> Handle(
+    public async Task<Result<PromoTaskListResponse>> Handle(
         GetPromoTasksByAccountIdQuery request,
         CancellationToken cancellationToken)
     {
         var tasksResult = await promoTasksRepository.GetTasksByAccountAsync(request.accountId);
 
-        if (tasksResult.IsFailure || tasksResult.Value is null || !tasksResult.Value.Any())
-            return Result.Failure<PromoTasksResponse>(PromoTasksErrors.NotFound);
+        if (tasksResult.IsFailure || tasksResult.Value is null || !tasksResult.Value.Tasks.Any())
+            return Result.Failure<PromoTaskListResponse>(PromoTasksErrors.NotFound);
 
-        return Result<PromoTasksResponse>.Success(PromoTasksResponse.FromList(tasksResult.Value));
+        return tasksResult;
     }
 }

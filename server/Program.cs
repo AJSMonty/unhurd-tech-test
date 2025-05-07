@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAppServices(builder.Configuration);
+builder.Services.AddFirebaseAuthentication(builder.Configuration);
 builder.Services.AddHostedService<CosmosStartupValidator>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -24,6 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseAuthorization();
 // app.UseHttpsRedirection();
 
 app.MapControllers();
