@@ -29,7 +29,6 @@ jobs:
           export VITE_FIREBASE_MESSAGING_SENDER_ID="${{ vars.VITE_FIREBASE_MESSAGING_SENDER_ID }}"
           export VITE_FIREBASE_APP_ID="${{ vars.VITE_FIREBASE_APP_ID }}"
           export VITE_FIREBASE_MEASUREMENT_ID="${{ vars.VITE_FIREBASE_MEASUREMENT_ID }}"
-
           export VITE_NODE_ENV="production"
           npm run build
 
