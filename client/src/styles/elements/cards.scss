@@ -1,0 +1,8 @@
+.card {
+  @include card-background();
+  position: relative;
+  box-sizing: border-box;
+  .title {
+    text-align: start;
+  }
+}

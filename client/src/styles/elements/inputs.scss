@@ -1,0 +1,56 @@
+// Inputs
+label {
+  text-align: left;
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+input {
+  border: 1px solid $grey-1;
+  background-color: $black1;
+  border-radius: 12px;
+  padding: 12px;
+  color: $white;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  &.has-prefix-icon {
+    padding-left: 50px !important;
+  }
+  &.error-outline {
+    outline: $error solid 1px !important;
+  }
+}
+
+input:focus,
+textarea:focus {
+  outline: $white solid 1px;
+}
+
+input:disabled {
+  color: $text-faded;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+// Textarea
+textarea {
+  min-height: 100px !important;
+  width: calc(100% - 20px);
+  background: transparent;
+  background-color: #0e0e0e;
+  border-radius: 12px;
+  border: solid 1px $grey-1;
+  color: $white;
+  font-family: inherit;
+  padding: 8px;
+  font-size: 1rem;
+  height: auto;
+}
+textarea:focus {
+  outline: $white solid 1px;
+}

@@ -1,3 +1,4 @@
+import AccountAPI from '../../network/AccountAPI';
 import { auth } from '../../firebaseSetup';
 import { initToken } from '../../utilities/api';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -13,6 +14,14 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
       if (user) {
         const token = await user.getIdToken();
         await initToken(token);
+        const data = {
+          accountId: user.uid,
+          email: user.email || '',
+          displayName: user.displayName || '',
+        };
+        await AccountAPI.createAccount({
+          data: data,
+        });
         setIsAuthenticated(true);
       } else {
         await initToken();

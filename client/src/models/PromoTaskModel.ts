@@ -8,7 +8,7 @@ export type PromoTask = {
 };
 
 export type CreatePromoTask = {
-  id: string;
+  id?: string;
   accountId: string;
   title: string;
   description: string;

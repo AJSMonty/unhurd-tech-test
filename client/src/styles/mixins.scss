@@ -1,0 +1,15 @@
+@mixin slow-fade {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@mixin quick-fade {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@mixin card-background {
+  @include quick-fade();
+  opacity: 0;
+  background-color: $card-background-color-1;
+  border-radius: 12px;
+  padding: 20px;
+}

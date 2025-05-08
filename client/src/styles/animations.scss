@@ -1,0 +1,210 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translateY {
+  0% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes translateX {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotate180 {
+  0% {
+    transform: rotate(-180deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--width);
+  }
+}
+
+@keyframes progressBubble {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: calc(var(--width) - 10px);
+  }
+}
+
+@keyframes progressRadialLg {
+  0% {
+    stroke-dashoffset: 560;
+  }
+  100% {
+    stroke-dashoffset: var(--progressLg);
+  }
+}
+
+@keyframes progressRadialMd {
+  0% {
+    stroke-dashoffset: 435;
+  }
+  100% {
+    stroke-dashoffset: var(--progressMd);
+  }
+}
+
+@keyframes progressRadialSm {
+  0% {
+    stroke-dashoffset: 310;
+  }
+  100% {
+    stroke-dashoffset: var(--progressSm);
+  }
+}
+
+@keyframes moveGradient {
+  0% {
+    background-size: 100%;
+    background-position: 0% 0%;
+  }
+  50% {
+    background-size: 200%;
+    background-position: 100% 0%;
+  }
+  100% {
+    background-size: 100%;
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes equalizer {
+  0% {
+    height: 60%;
+  }
+  4% {
+    height: 50%;
+  }
+  8% {
+    height: 40%;
+  }
+  12% {
+    height: 30%;
+  }
+  16% {
+    height: 20%;
+  }
+  20% {
+    height: 30%;
+  }
+  24% {
+    height: 40%;
+  }
+  28% {
+    height: 10%;
+  }
+  32% {
+    height: 40%;
+  }
+  36% {
+    height: 60%;
+  }
+  40% {
+    height: 20%;
+  }
+  44% {
+    height: 40%;
+  }
+  48% {
+    height: 70%;
+  }
+  52% {
+    height: 30%;
+  }
+  56% {
+    height: 10%;
+  }
+  60% {
+    height: 30%;
+  }
+  64% {
+    height: 50%;
+  }
+  68% {
+    height: 60%;
+  }
+  72% {
+    height: 70%;
+  }
+  76% {
+    height: 80%;
+  }
+  80% {
+    height: 70%;
+  }
+  84% {
+    height: 60%;
+  }
+  88% {
+    height: 50%;
+  }
+  92% {
+    height: 60%;
+  }
+  96% {
+    height: 70%;
+  }
+  100% {
+    height: 80%;
+  }
+}
+
+@keyframes gaugeArrowRotate {
+  0% {
+    offset-distance: 1%;
+  }
+
+  100% {
+    offset-distance: calc(var(--distance, 100) * 1%);
+  }
+}
