@@ -1,0 +1,84 @@
+// Background Colors
+$background-color: #000000;
+$card-background-color: #131313;
+$card-background-color-1: #1c1c1e;
+$card-background-color-faded: #13131381;
+$card-background-color-super-faded: #13131332;
+
+// Basic Colors
+$black: #000000;
+$black1: #0e0e0e;
+$black-1: #1c1c1e;
+$black-2: #262626;
+$white: white;
+$grey1: #d9d9d9;
+$grey: #99989f;
+$grey-1: #383838;
+$grey-1-faded: #383838b8;
+
+// Text Colors
+$text-faded: #99989f;
+$text-reduced-opacity: #ffffff97;
+$text-faded-1: rgb(145, 145, 145);
+$text-white: rgb(255, 255, 255);
+$text-blue: #05befe;
+$text-blue-faded: #01455c;
+$text-black: $black1;
+
+// Gradients
+$black-gradient-vertical: linear-gradient(180deg, transparent 0%, $black 50%);
+
+$blue-gradient: linear-gradient(255.56deg, #06befe 5.59%, #406bff 96.78%);
+$blue-gradient-faded: linear-gradient(255.56deg, rgba(6, 190, 254, 0.15) 5.59%, rgba(64, 107, 255, 0.15) 96.78%);
+$blue-gradient-card-background: linear-gradient(90deg, #1a313f 0%, #193442 100%);
+$blue-gradient-faded-player: linear-gradient(
+  230deg,
+  rgba(6, 190, 254, 0.1) 5.59%,
+  #06c0fe79 20.59%,
+  #406dff50 76.78%,
+  rgba(64, 107, 255, 0.1) 96.78%
+);
+$blue-gradient-vertical: linear-gradient(180deg, #06befe 5.59%, #406bff 96.78%);
+$blue-gradient-background-walkthrough: linear-gradient(180deg, #037ea8 5%, #2f47b1 20%, #000000 45%);
+
+$insta-story-background-gradient-header: linear-gradient(180deg, #13131370 5.59%, #13131300 96.78%);
+$insta-story-background-gradient-footer: linear-gradient(180deg, #13131300 5.59%, #13131370 96.78%);
+
+$yellow-gradient: linear-gradient(90deg, #ffae18 0%, #fdd07a 100%);
+$pink-gradient: linear-gradient(90deg, #f8005e 0%, #f8629b 100%);
+$purple-subscription-gradient: linear-gradient(90deg, #8e0f8a80 0%, #5d118180 100%);
+$purple-subscription-gradient-2: linear-gradient(90deg, #3c224880 -10%, #b208ad80 10%);
+
+// Other Brand Colors
+$spotify-green: #1ed760;
+$facebook-blue: #1877f2;
+$youtube-red: #fe3d2f;
+$instagram-gradient: linear-gradient(90deg, #fb9021 5%, #e14567 10%, #9239a7 55%);
+$instagram-pink: #f54e86;
+$tiktok-red: #fe2c55;
+$twitter-white: $white;
+$deezer-green: #29ab70;
+$soundcloud-orange: #ff5500;
+
+// Notifications
+$success: #009b51;
+$success-faded: #009b503e;
+$save-with-pro-bg: #ccebdc;
+
+$warn: #ffae11;
+$error: #f31155;
+$error-faded: #f3115537;
+
+$info: #05befe;
+$purple: #8f0f8a;
+$purple-faded: #4b0849;
+$deep-purple: #29073a;
+// Statuses
+$verified: #05befe29;
+$pending: #ffae1133;
+$rejected: #f311551a;
+
+$pink: #f8005e;
+$pink-light: #f8629b;
+$pink-faded: #f8005f29;
+$pink-light-faded: #f8629c25;

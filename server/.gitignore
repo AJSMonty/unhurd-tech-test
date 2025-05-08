@@ -1,0 +1,10 @@
+# Logs
+/obj
+/bin
+
+appsettings.json
+appsettings.Development.json
+
+/appsettings.json
+
+unhurd-tech-test-firebase-adminsdk-fbsvc-37c193219c.json

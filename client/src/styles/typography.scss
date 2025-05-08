@@ -1,0 +1,91 @@
+@import url('https://fonts.cdnfonts.com/css/circular-book');
+
+$default-font: 'Circular Book', sans-serif;
+$instagram-font: 'Neue Helvetica', sans-serif;
+
+body {
+  font-family: $default-font !important;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: $default-font !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  color: white;
+  font-family: $default-font !important;
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  &.small {
+    padding-top: 4px;
+    font-size: 0.8rem !important;
+  }
+}
+
+.text-faded {
+  color: $text-faded;
+}
+
+.text-reduced-opacity {
+  color: $text-reduced-opacity;
+}
+
+.text-white {
+  color: $text-white !important;
+}
+
+.text-black {
+  color: $text-black !important;
+}
+
+.text-blue {
+  color: $text-blue;
+}
+
+.text-error {
+  color: $error;
+}
+
+.text-left {
+  text-align: start !important;
+}
+.text-right {
+  text-align: end !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.capitalize::first-letter {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}

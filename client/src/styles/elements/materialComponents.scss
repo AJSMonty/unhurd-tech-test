@@ -1,0 +1,79 @@
+// Snackbars & Accordions
+.MuiPaper-root {
+  background-color: $card-background-color !important;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 16px;
+  box-shadow: none !important;
+  font-family: $default-font !important;
+}
+
+.MuiFormControl-root {
+  width: 100% !important;
+}
+
+.MuiInputBase-root {
+  width: 100%;
+  max-height: 50px;
+  color: $text-white !important;
+  border: 1px solid $grey-1 !important;
+  background-color: $black1 !important;
+  border-radius: 12px !important;
+  input {
+    padding: 12px !important;
+  }
+}
+
+.MuiModal-root {
+  background-color: $card-background-color-super-faded;
+  backdrop-filter: blur(2px);
+}
+
+.MuiInputLabel-root {
+  background-color: #0e0e0e !important;
+}
+
+.MuiFormControlLabel-root {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.MuiSelect-select {
+  width: 100% !important;
+  color: $white !important;
+  text-align: start;
+  padding: 10px 16px !important;
+}
+
+.MuiInputLabel-root {
+  color: $white !important;
+  background-color: $background-color;
+  padding-right: 8px !important;
+  padding-left: 4px !important;
+}
+
+.MuiInputBase-root {
+  border: 1px white solid;
+}
+
+.MuiSelect-outlined {
+  border: $white 1px solid;
+}
+
+.MuiSelect-icon {
+  color: $white !important;
+}
+
+.MuiMenuItem-root {
+  color: $white !important;
+  text-align: start;
+  border-bottom: 1px $grey-1 solid !important;
+  min-height: 50px !important;
+}
+
+.MuiMenu-paper {
+  height: fit-content;
+  .Mui-focusVisible {
+    background: $blue-gradient-faded !important;
+  }
+}

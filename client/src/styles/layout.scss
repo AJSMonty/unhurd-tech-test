@@ -1,0 +1,14 @@
+#root {
+  min-width: 100%;
+}
+
+.App {
+  display: flex;
+  background-size: 100%;
+  min-height: calc(100% + 2px);
+  padding: 20px;
+}
+
+body {
+  background-color: $background-color;
+}

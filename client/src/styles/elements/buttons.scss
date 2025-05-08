@@ -1,0 +1,35 @@
+button {
+  position: relative;
+  display: inline-flex !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  justify-content: center;
+  margin: 8px;
+  width: fit-content;
+  min-height: 40px !important;
+  max-height: 40px;
+  border-radius: 8px !important;
+  background-color: $black-1 !important;
+  color: $white !important;
+  padding: 0px 16px;
+  border: none;
+  font-size: 0.8rem !important;
+  text-transform: none !important;
+  font-family: $default-font !important;
+  font-weight: bold !important;
+  cursor: pointer;
+
+  img {
+    max-height: 24px;
+    height: 24px;
+  }
+
+  &.btn-white {
+    background-color: $white !important;
+    color: $background-color !important;
+  }
+}
+
+button:disabled {
+  opacity: 0.3;
+}

@@ -1,0 +1,268 @@
+@import './variables.scss';
+@import './breakpoints.scss';
+
+@each $order, $number in $orders {
+  .order-#{$order} {
+    order: $number !important;
+  }
+}
+
+@each $name, $size in $sizes {
+  // Margins
+  .m#{$name} {
+    margin: $size !important;
+  }
+
+  .mt#{$name} {
+    margin-top: $size !important;
+  }
+
+  .mb#{$name} {
+    margin-bottom: $size !important;
+  }
+
+  .ml#{$name} {
+    margin-left: $size !important;
+  }
+
+  .mr#{$name} {
+    margin-right: $size !important;
+  }
+
+  // Padding
+  .pt#{$name} {
+    padding-top: $size !important;
+  }
+
+  .pb#{$name} {
+    padding-bottom: $size !important;
+  }
+
+  .pl#{$name} {
+    padding-left: $size !important;
+  }
+
+  .pr#{$name} {
+    padding-right: $size !important;
+  }
+
+  .p#{$name} {
+    padding: $size !important;
+  }
+
+  // Borders
+  .br#{$name} {
+    border-radius: $size !important;
+  }
+
+  // Heights
+  .h#{$name} {
+    height: $size !important;
+  }
+
+  .min-h#{$name} {
+    min-height: $size !important;
+  }
+
+  .max-h#{$name} {
+    max-height: $size !important;
+  }
+
+  // Widths
+  .w#{$name} {
+    width: $size !important;
+  }
+
+  .max-w#{$name} {
+    max-width: $size !important;
+  }
+
+  .min-w#{$name} {
+    min-width: $size !important;
+  }
+
+  // Bottoms
+  .b#{$name} {
+    bottom: $size !important;
+  }
+
+  // Tops
+  .t#{$name} {
+    top: $size !important;
+  }
+
+  // Rights
+  .r#{$name} {
+    right: $size !important;
+  }
+
+  // Lefts
+  .l#{$name} {
+    left: $size !important;
+  }
+
+  // Gaps
+  .gap#{$name} {
+    gap: $size !important;
+  }
+
+  // Flex widths
+  @if $name != '0' {
+    .flex-w#{$name} {
+      width: calc($size - 11px) !important;
+    }
+    .flex-w#{$name}-21 {
+      width: calc($size - 21px) !important;
+    }
+    .flex-w#{$name}-6 {
+      width: calc($size - 6px) !important;
+    }
+    .flex-w#{$name}-2 {
+      width: calc($size - 2px) !important;
+    }
+  }
+
+  // Breakpoints
+  @each $breakpointName, $breakpoint in $breakpoints {
+    // Margins
+    .mt#{$name}-#{$breakpointName}-down {
+      @media only screen and (max-width: $breakpoint) {
+        margin-top: $size !important;
+      }
+    }
+
+    .mb#{$name}-#{$breakpointName}-down {
+      @media only screen and (max-width: $breakpoint) {
+        margin-bottom: $size !important;
+      }
+    }
+
+    .mt#{$name}-#{$breakpointName}-up {
+      @media only screen and (min-width: $breakpoint) {
+        margin-top: $size !important;
+      }
+    }
+
+    .mb#{$name}-#{$breakpointName}-up {
+      @media only screen and (min-width: $breakpoint) {
+        margin-bottom: $size !important;
+      }
+    }
+
+    // Widths
+    .w#{$name}-#{$breakpointName}-down {
+      @media only screen and (max-width: $breakpoint) {
+        width: $size !important;
+      }
+    }
+
+    .w#{$name}-#{$breakpointName}-up {
+      @media only screen and (min-width: $breakpoint) {
+        width: $size !important;
+      }
+    }
+
+    @each $order, $number in $orders {
+      .order-#{$order}-#{$breakpointName}-down {
+        @media only screen and (max-width: $breakpoint) {
+          order: $number !important;
+        }
+      }
+
+      .order-#{$order}-#{$breakpointName}-up {
+        @media only screen and (min-width: $breakpoint) {
+          order: $number !important;
+        }
+      }
+    }
+  }
+}
+
+// Positions
+.pos-abs {
+  position: absolute !important;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+// Displays
+.d-flex {
+  display: flex !important;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.d-block {
+  display: block !important;
+}
+
+// Flex
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-item-wrap {
+  flex-flow: row wrap;
+}
+
+// Justify Content
+.jc-center {
+  justify-content: center;
+}
+
+.jc-start {
+  justify-content: start;
+}
+
+.jc-space-around {
+  justify-content: space-around;
+}
+
+.jc-space-between {
+  justify-content: space-between;
+}
+
+.jc-end {
+  justify-content: end;
+}
+
+.flex-d-col {
+  flex-direction: column;
+}
+
+// Other
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.overflow-scroll {
+  overflow: auto;
+}
+
+.overflow-wrap {
+  overflow-wrap: anywhere;
+}
+
+.h-fit {
+  height: fit-content;
+}
+
+.h-fill {
+  height: 100vh !important;
+}
+
+.z-1000 {
+  z-index: 1000;
+}
+
+.align-items-center {
+  align-items: center;
+}
