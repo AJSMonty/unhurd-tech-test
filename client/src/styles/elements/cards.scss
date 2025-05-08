@@ -5,4 +5,13 @@
   .title {
     text-align: start;
   }
+  &.to-do {
+    background: $blue-gradient-faded;
+  }
+  &.in-progress {
+    background: $purple-subscription-gradient;
+  }
+  &.done {
+    background: $success-faded;
+  }
 }

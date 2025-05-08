@@ -8,8 +8,8 @@ const PromoTasksCard = () => {
 
   return (
     <Card className="mt20">
-      <div className="d-flex jc-space-between">
-        <h4>Promo Tasks</h4>
+      <div className="d-flex jc-space-between mb20">
+        <h3>Promo Tasks</h3>
         <CreateTaskButton />
       </div>
       <PromoTaskList promoTasks={promoTasks} />

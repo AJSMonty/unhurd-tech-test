@@ -54,14 +54,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-page" data-testid="login-page">
+    <div className="login-page">
       <div className="container">
         <div className="login-header">
           <img src="/unhurd-logo.png" alt="logo"></img>
           <p className="mt16">un:hurd music Promo Task Manager</p>
         </div>
-        <div className="form-container">
-          <Button className="btn-white ml0 w100p mt16" disabled={isLoading} onClick={signInWithGoogle}>
+        <div className="form-container ml-auto mr-auto">
+          <Button className="btn-white w100p mt16" disabled={isLoading} onClick={signInWithGoogle}>
             {!isLoading && (
               <>
                 <Icon className="pr8">

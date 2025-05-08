@@ -4,7 +4,7 @@ import CreateTaskButton from './CreateTaskButton';
 const NoTasksCard = () => {
   return (
     <Card className="mt20 d-flex jc-space-between">
-      <h4>No tasks yet</h4>
+      <h3>No tasks yet</h3>
       <CreateTaskButton />
     </Card>
   );

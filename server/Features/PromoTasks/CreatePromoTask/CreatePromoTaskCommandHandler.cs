@@ -25,9 +25,6 @@ internal sealed class CreatePromoTaskCommandHandler(
             createdAt = DateTime.UtcNow
         };
 
-        Console.WriteLine($"Creating new task: {newTask.id}");
-        Console.WriteLine($"Account ID: {newTask.accountId}");
-
         var promoTaskResult = await promoTasksRepository.CreateTaskAsync(newTask);
 
         if (promoTaskResult.IsFailure)

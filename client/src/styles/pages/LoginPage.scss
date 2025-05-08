@@ -25,38 +25,11 @@
     }
   }
   .form-container {
-    // @include card-background();
     animation: fadeIn 0.5s ease-in-out forwards;
     position: relative;
     text-align: left;
     max-width: 414px;
     height: fit-content;
     box-shadow: 0px 0px 150px 10px #0e0e0e;
-  }
-}
-
-.form-divider {
-  width: 100%;
-  .line {
-    height: 1px;
-    margin-top: 12px;
-    background-color: grey;
-    flex-grow: 1;
-  }
-}
-
-.input-visibility-icon {
-  right: calc(-100% + 50px);
-  top: -50px;
-}
-
-.login-footer {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 8px;
-  a:first-of-type {
-    border-right: 1px solid grey;
   }
 }
