@@ -1,5 +1,5 @@
-import LoginPage from "../pages/LoginPage";
-import HomePage from "../pages/HomePage";
+import LoginPage from '../pages/LoginPage';
+import HomePage from '../pages/HomePage';
 
 export type AppRoute = {
   path: string;
@@ -8,6 +8,6 @@ export type AppRoute = {
 };
 
 export const appRoutes: AppRoute[] = [
-  { path: "/", element: HomePage },
-  { path: "/login", element: LoginPage },
+  { path: '/', element: HomePage, protected: true },
+  { path: '/login', element: LoginPage },
 ];

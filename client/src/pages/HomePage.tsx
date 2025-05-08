@@ -1,12 +1,9 @@
 import PromoTaskAPI from '../network/PromoTasksAPI';
 import AccountAPI from '../network/AccountAPI';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PromoTask } from '@/models/PromoTaskModel';
 import { AccountModel } from '@/models/AccountModel';
-import { auth } from '../firebaseSetup';
-import { onAuthStateChanged } from 'firebase/auth';
-import { initToken } from '../utilities/api';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -18,19 +15,7 @@ const HomePage = () => {
     navigate('/login');
   };
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log('Logged in:', user.email);
-      user.getIdToken().then(async (token) => {
-        await initToken(token);
-        getDetails();
-      });
-    } else {
-      console.log('Not authenticated');
-    }
-  });
-
-  const getDetails = async () => {
+  const getDetails = useCallback(async () => {
     if (promoTasks.length > 0) return;
     AccountAPI.getAccount({ accountId: '12345' })
       .then((response) => {
@@ -51,7 +36,11 @@ const HomePage = () => {
         console.error('Error fetching account data:', error);
         setIsLoading(false);
       });
-  };
+  }, [promoTasks]);
+
+  useEffect(() => {
+    getDetails();
+  }, [getDetails]);
 
   return (
     <div>
