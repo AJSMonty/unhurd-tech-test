@@ -65,6 +65,8 @@ npm install
 npm run dev
 ```
 
+The frontend web app will run at http://localhost:5173/
+
 ## 🛠️ CI/CD Pipeline
 
 This repo includes 2 GitHub Actions workflows that:
