@@ -27,13 +27,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{ github.workspace }}/publish
+        run: dotnet publish -c Release -o ${{ github.workspace }}/server/publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{ github.workspace }}/publish
+          path: ${{ github.workspace }}/server/publish
 
   deploy:
     runs-on: windows-latest
@@ -54,7 +54,7 @@ jobs:
       - name: List downloaded artifact contents
         run: |
           echo "Listing contents of downloaded artifact:"
-          dir ${{ github.workspace }}/publish
+          dir ${{ github.workspace }}/server/publish
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -69,4 +69,4 @@ jobs:
         with:
           app-name: "unhurd-tech-test-api"
           slot-name: "Production"
-          package: ${{ github.workspace }}/publish
+          package: ${{ github.workspace }}/server/publish
