@@ -24,16 +24,16 @@ jobs:
         run: |
           cd server  # Change directory to 'server'
           dotnet build --configuration Release  # Build inside the 'server' directory
-          dotnet publish -c Release -o ${{ github.workspace }}/publish
+          dotnet publish -c Release -o ${{ github.workspace }}/publish  # Publish output to the workspace
 
       - name: List contents after publish (debugging)
-        run: dir ${{ github.workspace }}/publish
+        run: dir ${{ github.workspace }}/publish # List the contents of the published output
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{ github.workspace }}/publish
+          path: ${{ github.workspace }}/publish # Upload from the publish directory
 
   deploy:
     runs-on: windows-latest
@@ -54,7 +54,7 @@ jobs:
       - name: List downloaded artifact contents
         run: |
           echo "Listing contents of downloaded artifact:"
-          dir ${{ github.workspace }}/publish
+          dir ${{ github.workspace }}/.net-app  # Ensure the artifact is downloaded to the correct folder
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -69,4 +69,4 @@ jobs:
         with:
           app-name: "unhurd-tech-test-api"
           slot-name: "Production"
-          package: ${{ github.workspace }}/publish
+          package: ${{ github.workspace }}/.net-app/publish # Use the correct path from the downloaded artifact
