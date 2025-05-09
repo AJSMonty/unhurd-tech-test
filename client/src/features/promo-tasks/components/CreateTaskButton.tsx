@@ -23,7 +23,12 @@ const CreateTaskButton = () => {
   );
 
   const formMethods = useForm<CreatePromoTask>({ defaultValues });
-  const { register, handleSubmit, reset } = formMethods;
+  const { register, handleSubmit, reset, watch } = formMethods;
+
+  const title = watch('title');
+  const description = watch('description');
+
+  const isCreateDisabled = !title?.trim() || !description?.trim();
 
   const onSubmit = async (data: CreatePromoTask) => {
     try {
@@ -56,7 +61,12 @@ const CreateTaskButton = () => {
               {...register('description', { required: true })}
             />
 
-            <Button className="btn-white m0 w100p mt20" type="submit" onClick={handleSubmit(onSubmit)}>
+            <Button
+              disabled={isCreateDisabled}
+              className="btn-white m0 w100p mt20"
+              type="submit"
+              onClick={handleSubmit(onSubmit)}
+            >
               Create
             </Button>
           </FormProvider>

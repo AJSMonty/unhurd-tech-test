@@ -10,7 +10,7 @@ public static class FirebaseAuthenticationExtensions
                                    .Get<FirebaseSettings>()
                                ?? throw new ArgumentException(nameof(FirebaseSettings));
 
-        var firestoreCredential = GetGoogleCredential(firebaseSettings);
+        var firestoreCredential = GetGoogleCredential(firebaseSettings, configuration);
 
         var tokenAuthority = $"https://securetoken.google.com/{firebaseSettings.ProjectId}";
 
@@ -39,13 +39,24 @@ public static class FirebaseAuthenticationExtensions
             });
     }
 
-    private static GoogleCredential GetGoogleCredential(FirebaseSettings settings)
+    private static GoogleCredential GetGoogleCredential(FirebaseSettings settings, IConfiguration configuration)
     {
         var credentialPath = settings.CredentialPath;
 
-        if (!File.Exists(credentialPath))
-            throw new FileNotFoundException("Firebase service account JSON not found", credentialPath);
+        if (!string.IsNullOrWhiteSpace(credentialPath) && File.Exists(credentialPath))
+        {
+            return GoogleCredential.FromFile(credentialPath);
+        }
 
-        return GoogleCredential.FromFile(credentialPath);
+        var firebaseJson = configuration["FirebaseCredentials"];
+
+        if (string.IsNullOrWhiteSpace(firebaseJson))
+        {
+            throw new Exception("FirebaseCredentials not found in configuration or local path.");
+        }
+
+        var jsonStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(firebaseJson));
+        return GoogleCredential.FromStream(jsonStream);
     }
+
 }
