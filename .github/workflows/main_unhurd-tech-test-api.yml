@@ -51,6 +51,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
+          auth-type: federated
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E8EB00EAE0434B27A2A1916F27F06C77 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E5A309FCA73446808C4AA9298FC0E9A0 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EF4BFF33EF524EAE8117CC0CCAE7D83C }}
