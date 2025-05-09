@@ -1,3 +1,4 @@
+import { PromoTask } from '@/models/PromoTaskModel';
 import useAccount from '../../../features/account/hooks/useAccount';
 import PromoTaskAPI from '../../../network/PromoTasksAPI';
 import { AxiosResponse } from 'axios';
@@ -16,6 +17,10 @@ const useAllPromoTasks = () => {
 
   return {
     promoTasks: data?.data.tasks,
+    completedTasks: data?.data.tasks.filter((task: PromoTask) => task.status === 'Done').length,
+    inProgressTasks: data?.data.tasks.filter((task: PromoTask) => task.status === 'InProgress').length,
+    toDoTasks: data?.data.tasks.filter((task: PromoTask) => task.status === 'ToDo').length,
+    promoTasksCount: data?.data.tasks.length,
     promoTasksIsLoading: isLoading,
     promoTasksError: error,
     refetchPromoTasks: mutate,
