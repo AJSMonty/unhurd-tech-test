@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: windows-latest
     permissions:
       contents: read
@@ -20,41 +20,14 @@ jobs:
         with:
           dotnet-version: "8.x"
 
-      - name: Build and Publish inside 'server' folder
+      - name: Build and Publish
         run: |
-          cd server  # Change directory to 'server'
-          dotnet build --configuration Release  # Build inside the 'server' directory
-          dotnet publish -c Release -o ${{ github.workspace }}/publish  # Publish output to the workspace
+          cd server
+          dotnet build --configuration Release
+          dotnet publish -c Release -o ${{ github.workspace }}/publish
 
       - name: List contents after publish (debugging)
-        run: dir ${{ github.workspace }}/publish # List the contents of the published output
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ${{ github.workspace }}/publish # Upload from the publish directory
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: "Production"
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write
-      contents: read
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
-
-      - name: List downloaded artifact contents
-        run: |
-          echo "Listing contents of downloaded artifact:"
-          dir ${{ github.workspace }}/.net-app  # Ensure the artifact is downloaded to the correct folder
+        run: dir ${{ github.workspace }}/publish
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -69,4 +42,4 @@ jobs:
         with:
           app-name: "unhurd-tech-test-api"
           slot-name: "Production"
-          package: ${{ github.workspace }}/.net-app/publish # Use the correct path from the downloaded artifact
+          package: ${{ github.workspace }}/publish
