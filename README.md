@@ -3,7 +3,7 @@
 Welcome to the Unhurd Tech Test repo — a full-stack project built with an ASP.NET Core (C#) backend, a Vite/React frontend, and deployed to Azure.
 The app allows users to sign-in/create an account, and then create and manage a list of tasks.
 
-# https://wonderful-meadow-02d574f03.6.azurestaticapps.net/
+### https://wonderful-meadow-02d574f03.6.azurestaticapps.net/
 
 ## 🗂️ Project Structure
 
@@ -41,13 +41,13 @@ unhurd-tech-test/
 
 ## 🚀 Getting Started
 
-# ✅ Prerequisites
+### ✅ Prerequisites
 
 .NET 8 SDK
 
 Node.js + npm
 
-# 🧪 Running the API Locally
+### 🧪 Running the API Locally
 
 ```
 cd server
@@ -57,7 +57,7 @@ dotnet dotnet run --launch-profile https
 
 The API will start at https://localhost:7166
 
-# 🌐 Running the Frontend
+### 🌐 Running the Frontend
 
 ```
 cd client
@@ -67,7 +67,7 @@ npm run dev
 
 The frontend web app will run at http://localhost:5173/
 
-## 🛠️ CI/CD Pipeline
+### 🛠️ CI/CD Pipeline
 
 This repo includes 2 GitHub Actions workflows that:
 
