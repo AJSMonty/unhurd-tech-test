@@ -24,13 +24,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish -c Release -o "./server/publish"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./server/publish
 
   deploy:
     runs-on: windows-latest
@@ -48,6 +48,11 @@ jobs:
         with:
           name: .net-app
 
+      - name: List downloaded artifact contents
+        run: |
+          echo "Listing contents of downloaded artifact:"
+          dir ./server/publish  # Hardcoded path for the artifact
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -61,4 +66,4 @@ jobs:
         with:
           app-name: "unhurd-tech-test-api"
           slot-name: "Production"
-          package: ${{env.DOTNET_ROOT}}/myapp
+          package: ./server/publish
