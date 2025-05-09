@@ -18,7 +18,7 @@ public class PromoTasksRepository : IPromoTasksRepository
     {
         try
         {
-            var query = new QueryDefinition("SELECT * FROM c WHERE c.accountId = @accountId")
+            var query = new QueryDefinition("SELECT * FROM c WHERE c.accountId = @accountId ORDER BY c.createdAt DESC")
                 .WithParameter("@accountId", accountId);
 
             var resultSet = _container.GetItemQueryIterator<PromoTask>(

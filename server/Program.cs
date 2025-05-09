@@ -1,10 +1,18 @@
 using Microsoft.AspNetCore.DataProtection;
+using Azure.Identity;
 using Microsoft.OpenApi.Models;
 using Unhurd.Api.Middleware;
 using Unhurd.Api.Services;
 using Unhurd.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var keyVaultName = builder.Configuration["KeyVaultName"];
+if (!string.IsNullOrEmpty(keyVaultName))
+{
+    var keyVaultUri = new Uri($"https://{keyVaultName}.vault.azure.net/");
+    builder.Configuration.AddAzureKeyVault(keyVaultUri, new DefaultAzureCredential());
+}
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAppServices(builder.Configuration);
