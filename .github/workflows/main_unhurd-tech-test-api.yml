@@ -61,4 +61,4 @@ jobs:
         with:
           app-name: "unhurd-tech-test-api"
           slot-name: "Production"
-          package: ./server/publish
+          package: ${{env.DOTNET_ROOT}}/myapp
