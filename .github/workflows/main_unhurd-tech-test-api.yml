@@ -7,10 +7,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: windows-latest
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -21,14 +20,33 @@ jobs:
         with:
           dotnet-version: "8.x"
 
-      - name: Build and Publish
-        run: |
-          cd server
-          dotnet build --configuration Release
-          dotnet publish -c Release -o ${{ github.workspace }}/publish
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
 
-      - name: List contents after publish (debugging)
-        run: dir ${{ github.workspace }}/publish
+      - name: dotnet publish
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: "Production"
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -43,4 +61,4 @@ jobs:
         with:
           app-name: "unhurd-tech-test-api"
           slot-name: "Production"
-          package: ${{ github.workspace }}/publish
+          package: ${{ github.workspace }}/.net-app
